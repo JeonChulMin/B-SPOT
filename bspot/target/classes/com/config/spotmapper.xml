@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.SpotMapper">
+	<select id="select" parameterType="Integer" resultType="spot">
+		SELECT * FROM SPOT WHERE ID=#{obj}
+	</select>
+	
+	<insert id="insert" parameterType="spot">
+		INSERT INTO SPOT VALUES (SPOT_SEQ.NEXTVAL,#{addr},#{datacontent},#{datatitle},#{guide},#{usetime},#{lx},#{ly},#{img})
+	</insert>
+	<update id="update" parameterType="spot">
+		UPDATE SPOT SET ADDR=#{addr},DATACONTENT=#{datacontent},DATATITLE=#{datatitle} ,GUIDE=#{guide},USETIME=#{usetime},LX=#{lx},LY=#{ly},IMG=#{img} WHERE ID=#{id}
+	</update>
+	<delete id="delete" parameterType="INTEGER">
+		DELETE FROM SPOT WHERE ID=#{obj}
+	</delete>
+	<select id="selectall" resultType="spot">
+		SELECT * FROM SPOT
+	</select>
+</mapper>
